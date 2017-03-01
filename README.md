@@ -1,5 +1,5 @@
 # LXRegularTextview
-
+![image](https://github.com/liuxinixn/LXRegularTextview/blob/master/LXRegularTextview/fuwb.gif)
 self.textview =[[ZLStatusTextView alloc]initWithFrame:CGRectMake(20, 100, 250, 200)];
     ZLStatus *status = [[ZLStatus alloc]init];
     status.text = kTempText;
