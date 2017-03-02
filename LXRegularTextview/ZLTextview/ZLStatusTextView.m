@@ -144,7 +144,12 @@
 -(void)setMaxLine:(int)maxLine{
     _maxLine = maxLine;
     [self.zlFrame setMaxNumLine:maxLine];
-    self.frame = self.zlFrame.maxNumLabelF;
+    if (self.zlFrame.maxNumLabelF.size.height > self.zlFrame.contentLabelF.size.height) {
+        self.frame = self.zlFrame.contentLabelF;
+    }else{
+        self.frame = self.zlFrame.maxNumLabelF;
+    }
+    
 }
 -(void)setIsShowAll:(BOOL)isShowAll{
     _isShowAll = isShowAll;
@@ -152,7 +157,8 @@
         self.frame = self.zlFrame.contentLabelF;
 
     }else{
-        [self setMaxLine:3];
+        [self setMaxLine:self.maxLine];
+        
     }
 }
 @end

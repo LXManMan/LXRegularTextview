@@ -37,8 +37,9 @@
     NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
     // url链接的规则
     NSString *urlPattern = @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(((http[s]{0,1}|ftp)://|)((?:(?:25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)))\\.){3}(?:25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d))))(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)";
-    NSString *phoneNumber =@"\\d{3}-\\d{8}|\\d{3}-\\d{7}|\\d{4}-\\d{8}|\\d{4}-\\d{7}|1+[3578]+\\d{9}|\\d{8}|\\d{7}"
-    ;
+//    NSString *phoneNumber =@"\\d{3}-\\d{8}|\\d{3}-\\d{7}|\\d{4}-\\d{8}|\\d{4}-\\d{7}|1+[3578]+\\d{9}|\\d{8}|\\d{7}"
+//    ;
+    NSString *phoneNumber = @"\\d{3}-\\d{8}|\\d{4}-\\d{7}|\\d{11}";
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern,phoneNumber];
     
     // 遍历所有的特殊字符串
@@ -154,7 +155,10 @@
         } else { // 非特殊文字
             substr = [[NSAttributedString alloc] initWithString:part.text];
         }
-        [attributedText appendAttributedString:substr];
+        if (substr) {
+            [attributedText appendAttributedString:substr];
+        }
+        
     }
     
     // 一定要设置字体,保证计算出来的尺寸是正确的

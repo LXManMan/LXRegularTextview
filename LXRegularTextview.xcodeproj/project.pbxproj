@@ -391,6 +391,7 @@
 				F6BE7EE41E66C60600C23D6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
